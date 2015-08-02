@@ -2,6 +2,36 @@
 <h1><%= @recipe.title %></h1>
 <P><%= @recipe.description %></P>
 
+
+<div class="main_content">
+  <div class="row">
+    <div class="col-md-6">
+      <div id="ingredients">
+        <h2>Ingredients</h2>
+        <ul>
+          <% @recipe.ingredients.each do |ingredient| %>
+            <li>
+              <%= ingredient.name %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div id="directions">
+        <h2>Directions</h2>
+        <ul>
+          <% @recipe.directions.each do |direction| %>
+            <li>
+              <%= direction.step %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
 <%= link_to "Back", root_path, class: "btn btn-default" %>
 <%= link_to "edit", edit_recipe_path, class: "btn btn-default" %>
 <%= link_to "Delete", recipe_path, method: :delete, data: {confirm:"Are you sure?"}, class: "btn btn-default" %>
