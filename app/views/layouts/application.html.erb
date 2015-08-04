@@ -1,34 +1,44 @@
 <!DOCTYPE html>
 <html>
-	<head>
-	  <title>Recipe App</title>
-	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-	  <%= csrf_meta_tags %>
-	</head>
-	<body>
-	  <nav class="navbar navbar-default">
-	    <div class="container">
-	      <div class="navbar-brand">
-	        <%= link_to "Chicken Box", root_path %>
-	      </div>
-	      
-	        <ul class="nav navbar-nav navbar-right">
-	          <li>
-	            <%= link_to "New Way Fried It", new_recipe_path %>
-	          </li>
-	          <li>
-	          	<%= link_to "SignOut", root_path %>
-	          </li>
-	          
-	        </ul>	   	   
-	    </div>
-	  </nav>
-	  <div class="container">
-	    <% flash.each do |name, msg| %>
-	      <%= content_tag :div, msg, class: "alert" %>
-	    <% end %>
-	    <%= yield %>
-	  </div>
-	</body>
+<head>
+  <title>Recipe App</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-brand">
+        <%= link_to "Chicken Box", root_path %>
+      </div>
+      <br>
+      <% if user_signed_in? %>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <%= link_to "New Recipe", new_recipe_path %>
+          </li>
+          <li>
+            <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+          </li>
+        </ul>
+      <% else %>
+        <button type="button"  class="btn btn-default navbar-btn pull-right" >
+          
+            <%= link_to "Sign Up", new_user_registration_path %>
+          </button>
+
+           <button type="button"  class="btn btn-default navbar-btn pull-right">
+            <%= link_to "Sign In", new_user_session_path %>
+          </button>
+      <% end %>
+    </div>
+  </nav>
+  <div class="container">
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, class: "alert" %>
+    <% end %>
+    <%= yield %>
+  </div>
+</body>
 </html>
