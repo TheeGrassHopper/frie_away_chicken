@@ -1,0 +1,63 @@
+<header>	
+	<nav class="navbar navbar-default">
+    	<div class="container">
+	      	<div class="navbar-brand">
+		        <%= link_to "Chicken Box", root_path %>
+		    </div>
+		      	<br>
+
+		      	<% if user_signed_in? %>
+		        	<ul class="nav navbar-nav navbar-right ">
+			          	<li>
+			            	<%= link_to "New Recipe", new_recipe_path, class: "btn btn-warning"%>
+			          	</li>
+			          	<li>
+			           	 <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-warning" %>
+			          	</li>
+		       	 </ul>
+		     	 <% else %>
+		      	  	<button type="button"  class="btn btn btn-default navbar-btn pull-right" >
+		          
+		        	    <%= link_to "Sign Up", new_user_registration_path %>
+		        	</button>
+
+		        	<button type="button"  class="btn btn-default navbar-btn pull-right">
+		        	    <%= link_to "Sign In", new_user_session_path %>
+		        	</button>
+		     	 <% end %>
+	   	 	</div>
+  	<ul class="nav navbar-nav">
+  			<li>
+				<a href="https://twitter.com/share" class="twitter-share-button" data-url="https://reddit-e.herokuapp.com/" data-via="mortada_alwan" data-related="GA_ATX">Tweet</a>
+				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+			</li>
+			<li >		
+				<button type="button" class="btn btn-warning" data-toggle="modal" data-target=".bs-example-modal-lg">About</button>
+					<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  						<div class="modal-dialog modal-lg">
+   						 <div class="modal-content" >
+      						This app is inspired by my favorite fried chicken restaurant on South Congress Lucy's fired chicken. This app is fully functional.
+      						Users can post a favorite fried chicken recipes, users can vote out of 5 stars what they think.
+      						This app uses couple of gem such as 'devise' for authentication-sass' for style,simple_form, paperclip for images, cocoon for nested routes, ratyrate for rating ! I had lot of fun building this app hope you enjoy.
+    					 </div>
+  						</div>
+					</div>
+			</li>
+
+			<li>
+				<button type="button" class="btn btn-warning" data-toggle="modal" data-target=".bs-example-modal-sm">Contact me</button>
+					<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+						<div class="modal-dialog modal-sm">
+						 <!-- <div class="modal-content"> -->
+						<a target="_blank" title="follow us on facebook" href="https://www.facebook.com/alwan.mortada"><img alt="follow us on facebook" src="https://c866088.ssl.cf3.rackcdn.com/assets/facebook30x30.png" border=0></a>
+
+       					<a target="_blank" title="follow us on Twitter" href="https://twitter.com/mortada_alwan"><img alt="follow us on Twitter" src="https://c866088.ssl.cf3.rackcdn.com/assets/twiiter30x30.png" border=0></a>				
+
+        				<a target="_blank" title="follow us on instagram" href="https://instagram.com/alwanmortada/"><img alt="follow us on instagram" src="https://c866088.ssl.cf3.rackcdn.com/assets/instagram30x30.png" border=0></a>				
+
+        				<a target="_blank" title="follow us on wordpress" href="https://theegrasshopper.wordpress.com/"><img alt="follow us on instagram" src="https://s.w.org/about/images/logos/wordpress-logo-32-blue.png" border=0></a>					
+  					</div>
+			</li>
+		</ul>
+	</nav>
+ </header>
