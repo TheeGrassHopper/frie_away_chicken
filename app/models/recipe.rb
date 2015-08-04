@@ -1,4 +1,5 @@
 class Recipe < ActiveRecord::Base
+	ratyrate_rateable 'visual_effects', 'original_score', 'director', 'custome_design'
 	belongs_to :user
   	has_many :ingredients
   	has_many :directions
