@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150804022357) do
+ActiveRecord::Schema.define(version: 20150804212058) do
 
   create_table "average_caches", force: :cascade do |t|
     t.integer  "rater_id"
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20150804022357) do
   create_table "overall_averages", force: :cascade do |t|
     t.integer  "rateable_id"
     t.string   "rateable_type"
-    t.float    "overall_avg",   null: true
+    t.float    "overall_avg",   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -98,9 +98,11 @@ ActiveRecord::Schema.define(version: 20150804022357) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "username"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["username"], name: "index_users_on_username", unique: true
 
 end
