@@ -1,4 +1,21 @@
 <%= image_tag @recipe.image.url(:medium, class:"recipe_image") %>
+
+<div class="row">
+  <div class="small-2 large-2 columns">
+     <div class="container">
+     <p> Rate this :
+    <%= imdb_style_rating_for @recipe, current_user, disable_after_rate: true, imdb_avg: true%>  
+    </p> 
+  </div>
+  <br>
+  <div class="small-2 large-4 columns">
+   
+      Original Score: <%= rating_for @recipe, "original_score", disable_after_rate: true, imdb_avg: true, stars: 10 %>
+      <br>
+     
+    </div>
+  </div>
+</div>
 <h1><%= @recipe.title %></h1>
 <P><%= @recipe.description %></P>
 <p>Submitted by: <%= @recipe.user.email %></p>
@@ -8,6 +25,8 @@
 <%= link_to "edit", edit_recipe_path, class: "btn btn-default" %>
 <%= link_to "Delete", recipe_path, method: :delete, data: {confirm:"Are you sure?"}, class: "btn btn-default" %>
 <% end %>
+
+
 
 <div class="main_content">
   <div class="row">
@@ -37,4 +56,5 @@
     </div>
   </div>
 </div>
+
 

@@ -18,6 +18,8 @@ gem 'bootstrap-sass', '~> 3.2.0.2'
 gem 'cocoon', '~> 1.2.6'
 gem 'devise'
 
+gem 'ratyrate'
+
 gem 'aws-sdk', '~> 2.1.8'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'spring', group: :development
