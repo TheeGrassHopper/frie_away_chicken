@@ -4,7 +4,7 @@
   <div class="small-2 large-2 columns">
      <div class="container">
      <p> Rate this :
-     <%= javascript_include_tag 'ratyrate.js', "data-turbolinks-track" => false %>
+     <%= javascript_include_tag 'ratyrate.js.erb', "data-turbolinks-track" => false %>
     <%= imdb_style_rating_for @recipe, current_user, disable_after_rate: true, imdb_avg: true%>  
     </p> 
   </div>
