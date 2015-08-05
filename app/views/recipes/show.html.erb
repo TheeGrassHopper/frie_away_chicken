@@ -10,7 +10,9 @@
   <br>
   <div class="small-2 large-4 columns">
    <div class="container">
+   <% if current_user.id != @recipe.user.id %>
       Original Score: <%= rating_for @recipe, "original_score", disable_after_rate: true, imdb_avg: true, stars: 10 %>
+      <%end%>
       <br>
      </div>
     </div>
@@ -21,7 +23,7 @@
 <p>Submitted by: <%= @recipe.user.username %></p>
 
 <%= link_to "Back", root_path, class: "btn btn-default" %>
-<% if user_signed_in? %>
+<% if current_user.id == @recipe.user.id %>
 <%= link_to "edit", edit_recipe_path, class: "btn btn-default" %>
 <%= link_to "Delete", recipe_path, method: :delete, data: {confirm:"Are you sure?"}, class: "btn btn-default" %>
 <% end %>
