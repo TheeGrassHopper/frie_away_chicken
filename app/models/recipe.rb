@@ -8,11 +8,11 @@ class Recipe < ActiveRecord::Base
   			allow_destroy: true
  	accepts_nested_attributes_for :directions,
  		reject_if: proc { |attributes| attributes['step'].blank? },
-     allow_destroy: true  
+  			allow_destroy: true
  	validates :title, :description, :image, presence: true
-
-	has_attached_file :image, :styles => { :medium => "400x400>", :thumb  "100x100>"}, :default_url => "default.png", :storage => :s3, :s3_credentials => S3_CREDENTIALS
-  validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"] 
+	has_attached_file :image, styles: { :medium => "400x400#", :thumb => "100x100>" }, :storage => :s3,
+                    :s3_credentials => Proc.new{|a| a.instance.s3_credentials }
+	validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 end
 
 
