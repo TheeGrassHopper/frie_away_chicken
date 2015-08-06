@@ -88,6 +88,6 @@ Rails.application.configure do
     :region => 'us-west-2'
     :s3_host_name => 's3-us-west-2.amazonaws.com'
     :url => ':s3_domain_url'
-    '  }
-}
+    }
+  }
 end
