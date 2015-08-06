@@ -45,7 +45,7 @@ Rails.application.configure do
     :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
     :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY'],
     :region => 'us-west-2',
-    :s3_host_name => 's3-us-west-2.amazonaws.com',
+    :s3_host_name => 'frie-away-chicken.s3-website-us-east-1.amazonaws.com',
     :url => ':s3_domain_url'
   }
 }
