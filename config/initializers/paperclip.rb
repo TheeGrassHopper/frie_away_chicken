@@ -7,6 +7,6 @@ Paperclip::Attachment.default_options.merge!(
     :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
     :region => 'us-west-2'
     :s3_host_name => 's3-us-west-2.amazonaws.com'
-    :url => ":s3_domain_url"
+    :url => ':s3_domain_url'
   }
 )
