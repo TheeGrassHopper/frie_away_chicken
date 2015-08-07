@@ -1,6 +1,6 @@
-<%= simple_form_for @recipe, html: { multipart: true } do |f| %>
+<%= simple_form_for @recipe, html: { multipart: true, class: "directUpload" } do |f| %>
   <% if @recipe.errors.any? %>
-    <div id="errors">
+    <div id="error_explanation">
       <p>
         <%= @recipe.errors.count %>
         Prevented this recipe froms saving
@@ -18,8 +18,11 @@
   <div class="panel-body">
     <%= f.input :title, input_html: { class: 'form-control' } %>
     <%= f.input :description, input_html: { class: 'form-control' } %>
-    <%= f.input :image, input_html: { class: 'form-control' } %>
     
+    <div class="field">
+  <%= f.label :image %><br>
+  <%= f.file_field :image, input_html: { class: 'form-control' } %>
+      </div>
     <div class="row">
       <div class="col-md-6">
         <h3>Ingredients</h3>
