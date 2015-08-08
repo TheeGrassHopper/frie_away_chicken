@@ -76,7 +76,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-  # config.action_mailer.default_url_options = { host: 'frie-away-chicken.com' }
+  config.action_mailer.default_url_options = { host: 'frie-away-chicken.com' }
 
   # Sets Paperclip to upload images to Amazon S3
   config.paperclip_defaults = {
