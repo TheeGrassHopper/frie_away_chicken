@@ -19,6 +19,7 @@
 //= require jquery.raty
 //= require ratyrate
 
+/* Detecting file field on the client side */
 $(function() {
   $('.directUpload').find("input:file").each(function(i, elem) {
     var fileInput    = $(elem);
@@ -36,6 +37,8 @@ $(function() {
       paramName:        'file', // S3 does not like nested name fields i.e. name="user[avatar_url]"
       dataType:         'XML',  // S3 returns XML if success_action_status is set to 201
       replaceFileInput: false,
+      
+      /* jQuery-File-Upload callbacks*/
       progressall: function (e, data) {
         var progress = parseInt(data.loaded / data.total * 100, 10);
         progressBar.css('width', progress + '%')
