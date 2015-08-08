@@ -1,4 +1,4 @@
-Paperclip.configure do |config|
+Paperclip.config do |config|
 	config.paperclip_defaults = {
   :storage => :s3,
   :s3_credentials => {
