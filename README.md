@@ -1,5 +1,5 @@
 # frie_away_chicken
-
+So this App is part of my 12 apps 12 Weeks Challange.
 ##This project is inspiered by the faviort fried chickin place in Austin. So I thought I'll make an app that allows users to add there family fried checkien recipes.
 
 ####gem 'simple_form', '~> 3.0.2'
